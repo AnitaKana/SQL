@@ -1,0 +1,26 @@
+--create makeup store database
+
+create table makeup (id integer primary key, name TEXT, price integer, quantity integer);
+insert into makeup values 
+(1, "Blush", 8.99, 5), 
+(2, "mascara", 12.99, 8), 
+(3, "foundation",20.99, 10), 
+(4, "eyeliner", 7.99, 3), 
+(5, "false lashes", 14.99, 3);
+
+--display the database items ordered by quantity
+Select * from makeup order by quantity;
+
+--display the database items containing less than 8 quantity
+SELECT * FROM makeup where quantity < 8;
+
+--display the database items less than 8 products in quantity and order by quantity descending
+Select * from makeup where quantity <8 order by quantity desc;
+
+--display the average price of the items that contain less than 8 prodcuts in quantity
+SELECT id, avg(price)
+FROM makeup
+where quantity < 8;
+
+--display the total price of each item held in database
+SELECT id, name, sum(price) FROM makeup group by id;
