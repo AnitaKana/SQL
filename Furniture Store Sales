@@ -135,11 +135,11 @@ from sales
 group by product
 order by total_price desc;
 
--- show me how many sales were made from UK that purchased a chair
+-- show me how many sales were made from the UK purchasing a chair
 Select count(*),product,country from sales
 where country = "United Kingdom" and product = "Chair";
 
---show me how many times each buyer has purchased a product and from which country they are from
+--show me how many times each buyer has purchased any product and from which country they are from
 Select count(*),name, country from sales
 group by name
 order by count(*) desc;
