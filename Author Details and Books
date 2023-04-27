@@ -1,0 +1,69 @@
+-- Create a table called author with author details
+
+Create Table author (
+id Integer Primary Key,
+name text,
+cuntry text,
+books_sold Integer);
+
+Insert Into author values 
+(1, "Margaret Atwood", "Canada", 3000000),
+(2, "Stephen King", "United States", 40000000),
+(3, "Dan Brown", "United States", 200000000),
+(4, "Neil Gaiman", "",45000000),
+(5, "J K Rowling", "United Kingdom", 600000000),
+(6, "John Green", "United States",50000000),
+(7, "Haruki Murakami", "Japan", 2500000),
+(8, "Paulo Coehlo", "Brazil", 320000000 ),
+(9, "Malcolm Gladwell", "United States", 5000000),
+(10, "Arundhati Roy", "India", 6000000);
+
+--create a table called books
+
+create table books (
+id Integer Primary Key,
+author_id integer,
+best_seller text,
+genre text,
+number_of_books integer);
+
+Insert into books values
+(1, 1, "The Handmaid's Tale", "Science Fiction" ,18),
+(2,2, "The Shining", "Horror Fiction", 65),
+(3, 3, "The Da Vinci Code", "Novel Thriller", 8),
+(4, 4, "American Gods", "Fantasy" ,43),
+(5, 5, "Harry Potter and the Sorcerer's Stone", "Fantasy", 25),
+(6, 6, "The Fault in our Stars", "Novel", 33),
+(7, 7, "Norwegian Wood", "Romance Novel", 14),
+(8, 8, "The Alchemist", "Fantasy Fiction", 33),
+(9, 9, "The Tipping Point", "Non-fiction", 7),
+(10, 10, "The God of Small Things","Psychological Fiction",31);
+
+--Author name and their best selling book names in the result
+
+Select a.name, b.best_seller
+from author a 
+join books b
+on a.id = b.author_id;
+
+-- Best selling authors along with their book name and how many books they sold. Order by the number of books sold
+
+Select a.name, b.best_seller, a.books_sold
+from author a 
+join books b
+on a.id = b.author_id
+group by a.name
+order by a.books_sold desc;
+
+--Show all author names from author table and only the number of books they have written if present in the books table
+Select a.name, b.number_of_books
+from author a 
+left join books b
+on a.id = b.author_id;
+
+--Show authors who have written more than 40 books
+Select a.name, b.number_of_books
+from author a
+join books b
+on a.id = b.author_id
+where b.number_of_books >40;
