@@ -2,6 +2,9 @@
 Sales from an online furniture store
 Collected by: https://www.khanacademy.org/profile/charlesb2000/
 */
+
+--In this query I am running scripts for online furniture store. Data collected from the above link
+
 CREATE TABLE sales(
   ID INTEGER  NOT NULL PRIMARY KEY
 , transaction_date TEXT
