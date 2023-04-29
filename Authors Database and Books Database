@@ -1,3 +1,5 @@
+-- I am creating two tables; one called author and another called books. I will marry them up to run different scripts
+
 -- Create a table called author with author details
 
 Create Table author (
